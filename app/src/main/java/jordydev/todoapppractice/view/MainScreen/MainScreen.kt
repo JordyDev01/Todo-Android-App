@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import jordydev.todoapppractice.model.Todo
-import jordydev.todoapppractice.view.MainScreenVM
+import jordydev.todoapppractice.view.MainScreen.MainScreenVM
 import jordydev.todoapppractice.view.components.CustomFAB
 import jordydev.todoapppractice.view.components.TodoItem
 import kotlinx.coroutines.CoroutineScope
@@ -41,8 +41,7 @@ import kotlin.coroutines.coroutineContext
 
 @Composable
 fun MainScreen(
-    innerPaddingValues: PaddingValues,
-    viewModel: MainScreenVM
+    viewModel: MainScreenVM,
 ) {
     val testTodoList = listOf(
         Todo(
@@ -68,7 +67,39 @@ fun MainScreen(
             isDone = false,
             createdAt = System.currentTimeMillis(),
             updatedAt = System.currentTimeMillis()
-        )
+        ),
+        Todo(
+            id = 3,
+            title = "make breakfast",
+            description = "wake up by 5 am to make it",
+            isDone = true,
+            createdAt = System.currentTimeMillis(),
+            updatedAt = System.currentTimeMillis()
+        ),
+        Todo(
+            id = 4,
+            title = "make breakfast",
+            description = "wake up by 5 am to make it",
+            isDone = true,
+            createdAt = System.currentTimeMillis(),
+            updatedAt = System.currentTimeMillis()
+        ),
+        Todo(
+            id = 5,
+            title = "make breakfast",
+            description = "wake up by 5 am to make it",
+            isDone = true,
+            createdAt = System.currentTimeMillis(),
+            updatedAt = System.currentTimeMillis()
+        ),
+        Todo(
+            id = 6,
+            title = "make breakfast",
+            description = "wake up by 5 am to make it",
+            isDone = true,
+            createdAt = System.currentTimeMillis(),
+            updatedAt = System.currentTimeMillis()
+        ),
     )
 
     val todoList = viewModel.listTodo.collectAsStateWithLifecycle(
@@ -84,7 +115,7 @@ fun MainScreen(
         visible = true
     }
     Column(
-        modifier = Modifier.padding(innerPaddingValues)
+        modifier = Modifier
             .background(
                 MaterialTheme.colorScheme.background
             )
