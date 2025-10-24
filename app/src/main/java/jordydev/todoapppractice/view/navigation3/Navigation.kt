@@ -31,6 +31,7 @@ data object ListTodo
  fun NavTodo(
      viewModel: MainScreenVM = hiltViewModel()
  ) {
+     //first screen in the backStack
      val backStack = remember { mutableStateListOf<Any>(ListTodo) }
 
      Scaffold(modifier = Modifier.fillMaxSize(),
@@ -38,6 +39,7 @@ data object ListTodo
              if (backStack.lastOrNull() == ListTodo) {
                  CustomFAB(
                      onClick = {
+                         //push AddTodo data obj into the backStack to navigate to it
                          backStack.add(
                              AddTodo
                          )
@@ -54,9 +56,10 @@ data object ListTodo
              backStack = backStack,
              onBack = { backStack.removeLastOrNull() },
              entryProvider = { key ->
+                 //each key in the backStack mutableStateListOf
                  when (key) {
                      is ListTodo -> NavEntry(key) {
-                         MainScreen(viewModel)
+                         MainScreen()
                      }
 
                      is AddTodo -> NavEntry(key) {

@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import jordydev.todoapppractice.model.Todo
@@ -41,7 +42,7 @@ import kotlin.coroutines.coroutineContext
 
 @Composable
 fun MainScreen(
-    viewModel: MainScreenVM,
+    viewModel: MainScreenVM = hiltViewModel(),
 ) {
     val testTodoList = listOf(
         Todo(
